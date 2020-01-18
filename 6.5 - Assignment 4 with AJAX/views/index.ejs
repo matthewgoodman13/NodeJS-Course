@@ -1,0 +1,50 @@
+<%- include('includes/head.ejs') %>
+
+        <link rel="stylesheet" href="/css/form.css">
+
+  </head>
+  <body>
+
+<%- include('includes/navbar.ejs') %>
+
+    <main>
+      <h3>Form:</h3>
+      <form action="/users" method="POST">
+        <div class="form-group">
+          <label for="name">Please Enter Your Name:</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
+            <div class="input-group-append">
+              <button class="btn btn-outline-primary" type="submit">Submit</button>
+            </div>
+          </div>
+          <div id="HTMLHERE"></div>
+          
+        </div>
+      </form>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script>
+        $(document).ready( () => {
+          $('#main__link').click( () => {
+            // console.log("TEST!")
+            $.ajax({
+              url: 'users',
+              type: 'GET',
+              dataType: 'html',
+              success: (data) => {
+                // console.log('Data Received', data);
+                $('#HTMLHERE').html(data)
+              }
+
+            });
+
+
+          });
+        });
+
+      </script>
+
+    </main>
+    
+<%- include('includes/end.ejs') %>
