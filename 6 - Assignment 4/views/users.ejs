@@ -1,0 +1,24 @@
+<%- include('includes/head.ejs') %>
+
+        <link rel="stylesheet" href="/css/form.css">
+
+  </head>
+  <body>
+
+<%- include('includes/navbar.ejs') %>
+
+    <main>
+      <h3>Users:</h3>
+      <ul>
+        <% if (users.length > 0) { %>
+          <% for (let user of users) { %>
+            <li><%- user %></li>
+          <% } %>
+        <% } else { %>
+          <p>No Users</p>
+        <% } %>
+      </ul>
+
+    </main>
+    
+<%- include('includes/end.ejs') %>
